@@ -1,28 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<ul class="collapsible">
-    {% for task in tasks %}
-        <li>
-        <div class="collapsible-header white-text orange darken-4 text-shadow">
-            <i class="fas fa-caret-down"></i>
-            <strong>{{ task.task_name }}</strong> : {{ task.due_date }}
-        {% if task.is_urgent == 'on' %}
-            <i class="fas fa-exclamation-circle orange-text text-lighten-2 tooltipped"
-                data-position="right" data-tooltip="Urgent!">
-            </i>
-        {% endif %}
-        </div>
-        <div class="collapsible-body">
-            <strong>{{ task.category_name }} </strong>
-            <p>
-                 {{ task.task_description }}
-            </p>
-        </div>
-        </li>
-    {% endfor %}
-    
-  </ul>
+   <h3 class="orange-text text-darken-4 center-align">All Tasks</h3>
+
+    <ul class="collapsible">
+        {% for task in tasks %}
+            <li>
+            <div class="collapsible-header white-text orange darken-4 text-shadow">
+                <i class="fas fa-caret-down"></i>
+                <strong>{{ task.task_name }}</strong> : {{ task.due_date }}
+            {% if task.is_urgent == 'on' %}
+                <i class="fas fa-exclamation-circle orange-text text-lighten-2 tooltipped"
+                    data-position="right" data-tooltip="Urgent!">
+                </i>
+            {% endif %}
+            </div>
+            <div class="collapsible-body">
+                <strong>{{ task.category_name }} </strong>
+                <p>
+                    {{ task.task_description }}
+                </p>
+                <p><em>by: {{task.created_by}} </em></p>
+            </div>
+            </li>
+        {% endfor %}
+        
+    </ul>
         
 
 {% endblock %}
