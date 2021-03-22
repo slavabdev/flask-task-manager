@@ -13,3 +13,7 @@
 .datepicker-cancel, .datepicker-today, .datepicker-done {
     color: #e65100 ;
 }
+
+.dropdown-content li>a, .dropdown-content li>span {
+    color: #e65100 ;
+}
